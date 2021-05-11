@@ -57,22 +57,6 @@ textarea {
     background: #fff;
     color: #434a54; }
 
-.btn-goback {
-
-  background: #FF6762;
-  opacity: 1;
-  color: #fff;
-  text-transform: uppercase;
-  padding: 15px 50px 11px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.4px;
-  border: 2px solid #FF6762;
-  }
-  .btn-goback:hover {
-    background: #EFEFEF;
-    color: #FF6762; }
-
    
    
 
@@ -910,18 +894,7 @@ header .main-menu {
   .testimonial-sec .item h3 {
     font-size: 20px;
     line-height: 25px; } 
-    .container-btngoback{
-      top:33% !important;
-      left: 42.5% !important;
-    }
-    .btn-goback {
-      padding: 15px 40px 11px;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.2px;
-    }
 
-  
   }
 
 @media only screen and (max-width: 800px) {
@@ -948,26 +921,12 @@ header .main-menu {
     padding: 12px 18px 9px;
     font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.3px;
-  }
+    letter-spacing: 0.3px;}
     #btn {
     padding: 12px 18px 9px;
     font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.3px;
-  }
-    .container-btngoback{
-      top:40% !important;
-      left: 41% !important;
-    }
-
-   .btn-goback {
-      padding: 13px 35px 9px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.2px;
-    }
-
+    letter-spacing: 0.3px;}
     .section-title{
       font-size: 26px;
       margin-bottom: 15px;
@@ -1076,10 +1035,7 @@ header .main-menu {
 
 
   .offers-sec .detail .icon-point {
-    display: none;
-     }
-
-     }
+    display: none; } }
 @media only screen and (max-width: 640px) {
   header .header-top .ph-number {
     float: initial; }
@@ -1148,17 +1104,6 @@ header .main-menu {
     letter-spacing: 0.2px;}
     .slider .owl-dots {
     bottom: 20px;
-  }
- .container-btngoback{
-      top:19% !important;
-      left: 41% !important;
-  }
-
- .btn-goback {
-    padding: 10px 16px 7px;
-    font-size: 8px;
-    font-weight: 500;
-    letter-spacing: 0.2px;
   }
   .section-area-01 p.sub-title {
     font-size: 12px !important;
@@ -1253,19 +1198,6 @@ header .main-menu {
     right: 0px; }
 
  }
- @media only screen and (max-width: 375px) {
-  .container-btngoback{
-      top:16% !important;
-      left: 41% !important;
-  }
-
- .btn-goback {
-    padding: 8px 14px 6px;
-    font-size: 7px;
-    font-weight: 500;
-    letter-spacing: 0.2px;
-  }
- }
 @media only screen and (max-width: 320px) {
   body{
     margin-left: 0px;
@@ -1306,16 +1238,6 @@ header .main-menu {
     letter-spacing: 0.1px;}
     .slider .owl-dots {
     bottom: 10px;
-  }
- .container-btngoback{
-      top:14% !important;
-      left: 40% !important;
-  }
-  .btn-goback {
-    padding: 8px 13px 5px;
-    font-size: 7px;
-    font-weight: 500;
-    letter-spacing: 0.1px;}
   }
   .section-area-01 p.sub-title {
     font-size: 12px !important;
@@ -1581,92 +1503,4 @@ footer {
        margin-bottom: 20px;
   }    
   }
-
-.forgot-password{
-        margin-top: -45px;
-        margin-left: -15px;
-
-    }
-    .forgot-password a{
-        color: #000;
-        font-size: 12px;
-    }
-    .forgot-password2{
-        margin-top: -45px;
-        margin-left: -15px;
-        display: none;
-
-    }
-    .forgot-password2 a{
-        color: #000;
-        font-size: 12px;
-    }
-    @media only screen and (max-width: 425px){
-        .forgot-password{
-            display: none;
-        }
-        .forgot-password2{
-            display: unset;
-            margin-top: -20px;
-            margin-left: -10px;
-        }
-        .forgot-password2 a{
-            font-size: 9px;
-        }
-    }
-    @media only screen and (max-width: 320px){
-        .forgot-password2{
-            margin-left: -5px;
-        }
-    }
-
-     @media only screen and (max-width: 768px){
-      .profile-image{
-        width: 6em !important;
-        height: 6em !important; 
-      }
-      .btn-editimage{
-       width: 50%;
-      }
-       .btn-editdetails{
-       width: 15%;
-       margin-top: -30px !important;
-     }
-     .btn-view{
-      width: 70%;
-     }
-     }
-   @media only screen and (max-width: 425px){
-     .section-title3{
-      font-size: 15px !important;
-     }
-     table{
-      font-size: 13px !important;
-     }
-     .profile-scores{
-      width: 6em !important;
-        height: 8em !important;
-     }
-   }  
-  @media only screen and (max-width: 375px){
-    .btn-editdetails{
-       width: 20%;
-       margin-top: -30px !important;
-     }
-     .btn-view{
-      width:100%;
-     }
-    .section-title3{
-      font-size: 15px !important;
-     }
-     table{
-      font-size: 13px !important;
-     }
-     .profile-scores{
-      width: 6em !important;
-        height: 8em !important;
-     }
-  
-  }   
-   
 

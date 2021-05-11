@@ -13,8 +13,7 @@
 	$mname =  mysqli_real_escape_string($conn, $_POST["mname"]);
 	$email = mysqli_real_escape_string($conn, $_POST["email"]);
 	$pnum = mysqli_real_escape_string($conn, $_POST["pnum"]);
-	$bdate = $_POST["bdate"];
-  //$bdate = date('Y-m-d H:i:sa');
+	$bdate = mysqli_real_escape_string($conn, $_POST["bdate"]);
 	$password = md5($_POST["password"]);
 	$verify = "0";
 	$vkey = md5(time());
@@ -40,28 +39,17 @@
   $count1 = mysqli_num_rows($exec1);
 
 	if ($count == 0 && $count1 == 0) {
-		$sql = "INSERT INTO account(account_username, account_password, account_type, verify, vkey) VALUES ('$username', '$password', '$type', '$verify', '$vkey')";
+			$sql = "INSERT INTO account(account_username, account_password, account_type, verify, vkey) VALUES ('$username', '$password', '$type', '$verify', '$vkey')";
 		$result = $conn->query($sql);
-
     $selectid = "SELECT * FROM account WHERE account_username = '$username'";
     $execid = $conn->query($selectid);
     $row = $execid->fetch_assoc();
     $accid = $row['account_id'];
-
-	  $sql1 = "INSERT INTO users_info(account_id, user_lastname, user_firstname, user_middlename, user_birthdate, user_phonenumber, user_email) VALUES ('$accid', '$lname', '$fname', '$mname', '$bdate', '$pnum', '$email')";
-	  $result1 = $conn->query($sql1);     
-    $selectid1 = "SELECT * FROM users_info WHERE account_id = '$accid'";
-    $execid1 = $conn->query($selectid1);
-    $rows = mysqli_fetch_assoc($execid1);
-    $user_id = $rows['user_info_id'];
-
-    $sql2 = "INSERT INTO exam(user_info_id) VALUES ('$user_id')";
-	  $result2 = $conn->query($sql2);
-    $sql3 = "INSERT INTO assessment(user_info_id) VALUES ('$user_id')";
-	  $result3 = $conn->query($sql3);
+	    $sql1 = "INSERT INTO users_info(account_id, user_lastname, user_firstname, user_middlename, user_birthdate, user_phonenumber, user_email) VALUES ('$accid', '$lname', '$fname', '$mname', '$bdate', '$pnum', '$email')";
+	    $result1 = $conn->query($sql1);
 
 	    if ($result && $result1) {
-	    echo $bdate;
+	    echo "success";
 	    }
 
 	try {

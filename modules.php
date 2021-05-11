@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include ('php/database.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +29,7 @@
 
 </style>
 <body>
-    <header>        
+   <header>        
         <div class="main-menu title" style="">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -46,14 +45,19 @@
                             <li class="navbar-item">
                                 <a href="modules.php" class="nav-link">Modules</a>
                             </li>
+                            <?php
+                            if (isset($_SESSION['account_username'])) {  ?>
+                            <li class="navbar-item">
+                                <a href="assesment.php" class="nav-link">Assesment</a>
+                            </li><?php } else{ ?>
+                            <li class="navbar-item">
+                                <a href="login.php" class="nav-link">Assesment</a>
+                            </li> <?php } ?>
                             <li class="navbar-item">
                                 <a href="license-info.php" class="nav-link">License Info</a>
                             </li>
                             <?php
                             if (isset($_SESSION['account_username'])) { ?>
-                            <li class="navbar-item">
-                                <a href="assesment.php" class="nav-link">Assesment</a>
-                            </li>
                             <li class="navbar-item">
                                 <a href="profile.php" class="nav-link"><?php echo $_SESSION['account_username']; ?> 
                                 </a>
@@ -72,41 +76,29 @@
             </div>
         </div>
     </header>
-   
     
 
 
 
     <section class="section-area-04" id="services" style=" text-align: center;">
-
-     
-
                    
 
                   <div class="other-services container">
                       <h2 class="section-title wow fadeIn" style="text-align: left;">Modules <span></span></h2>
                       <div class="row">
-                        <?php  
-                          $query = mysqli_query($conn, "SELECT * FROM modules") or die(mysqli_error());
-                          while($fetch = mysqli_fetch_array($query)){
-                        ?>
-
                           <div class="col-md-3 col-6 wow fadeInUp mb-3">
                             <div class="other-card card">
                               <div class="inner"> 
-                                <img src="images/<?php echo $fetch['module_photo']?>" class="other-services-image card-img-top" alt="..." >
+                                <img src="images/trafficlight.jpg" class="other-services-image card-img-top" alt="..." >
                               </div> 
                               <div class="animate-nav2 card-body ">
-                                <h4 class="other-h4 otr-h4" style="margin-bottom: 2.1em;"><?php echo $fetch['module_name']?></h4>
-                                <a href="Modules/<?php echo $fetch['module_file']?>" class="other-btn " target="_blank">Review Now</a>
+                                <h4 class="other-h4 otr-h4" style="margin-bottom: 2.1em;">Traffic Signs</h4>
+                                <a href="Modules/Road_Traffic_Signs.pdf" class="other-btn " target="_blank">Review Now</a>
                               </div>
                             </div>
                               
                           </div>
-                          <?php 
-                          }
-                           ?>
-                          <!--div class="col-md-3 col-6 wow fadeInUp  mb-3" data-wow-delay=".1s">
+                          <div class="col-md-3 col-6 wow fadeInUp  mb-3" data-wow-delay=".1s">
                              <div class="other-card card">
                               <img src="images/Car.jpg" class="other-services-image card-img-top" alt="...">
                               <div class="animate-nav2 card-body">
@@ -192,7 +184,7 @@
                             
                               
                              
-                          </div-->
+                          </div>
 
 
 

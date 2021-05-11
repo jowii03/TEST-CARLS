@@ -1,7 +1,3 @@
-<?php
-$date = strtotime('now -17 year');
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,20 +39,25 @@ $date = strtotime('now -17 year');
                             <li class="navbar-item">
                                 <a href="modules.php" class="nav-link">Modules</a>
                             </li>
+                            <?php
+                            if (isset($_SESSION['account_username'])) {  ?>
+                            <li class="navbar-item">
+                                <a href="assesment.php" class="nav-link">Assesment</a>
+                            </li><?php } else{ ?>
+                            <li class="navbar-item">
+                                <a href="login.php" class="nav-link">Assesment</a>
+                            </li> <?php } ?>
                             <li class="navbar-item">
                                 <a href="license-info.php" class="nav-link">License Info</a>
                             </li>
                             <?php
                             if (isset($_SESSION['account_username'])) { ?>
                             <li class="navbar-item">
-                                <a href="assesment.php" class="nav-link">Assesment</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a href="profile.php" class="nav-link"><?php echo $_SESSION['account_username']; ?> 
+                                <a href="#" class="nav-link"><?php echo $_SESSION['account_username']; ?> 
                                 </a>
                             </li>
                              <li class="navbar-item">
-                                <a href="#" id="btnlogout" name="btnlogout" class="nav-link">Log Out</a>
+                                <a href="index.php" id="btnlogout" name="btnlogout" class="nav-link">Log Out</a>
                             </li>
                         <?php } else{ ?>
                             <li class="navbar-item">
@@ -70,14 +71,12 @@ $date = strtotime('now -17 year');
         </div>
     </header>
    
-   
 
 <!--form-->
-   <div class="static about-sec mb-5 mt-2">
+   <section class="static about-sec mb-5 mt-2">
         <div class="container wow fadeIn">
            <h2 class="section-title " style="text-align: left;">Register<span></span></h2>
-            <p>if you want to be come a Student driver please complete the form below. <br>
-            please provide all required details to register you account. </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. </p>
             <div class="form">
                
                     <div class="row">
@@ -101,7 +100,7 @@ $date = strtotime('now -17 year');
                             <input type="text" id="lname" name="lname" placeholder="Enter Lastname" >
                         </div>
                         <div class="col-md-4">
-                            <input type="date" id="bdate" name="mname" min="1950-01-01">
+                            <input type="date" id="bdate" name="mname" placeholder="Enter Birthdate" min="2020-11-">
                         </div>
                         <div class="col-md-4">
                             <input type="email" id="email" name="email" placeholder="Enter Email Address" >
@@ -113,13 +112,12 @@ $date = strtotime('now -17 year');
                             <button type="submit" id="btnsubmit" name="btnsubmit" class="btn pull-left">Sign up</button>
                             <h5>Already have account? <a href="login.php">Sign in here</a></h5>
                         </div>
-                       
                     </div>
                 
             </div>
         </div>
-    </div>
-                    
+    </section>
+
 <!--FOOTER-->   
     <footer id="contact">
         <div class="container">
@@ -160,24 +158,6 @@ $date = strtotime('now -17 year');
             </div>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-    $(function(){
-        var dtToday = new Date();
-    
-        var month = dtToday.getMonth() + 1;// jan=0; feb=1 .......
-        var day = dtToday.getDate();
-        var year = dtToday.getFullYear() - 17;
-        if(month < 10)
-            month = '0' + month.toString();
-        if(day < 10)
-            day = '0' + day.toString();
-    	var minDate = year + '-' + month + '-' + day;
-        var maxDate = year + '-' + month + '-' + day;
-    	$('#bdate').attr('max', maxDate);
-    });
- </script>
-
     <script src="js/jquery-3.5.1.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
    <script type="text/javascript">
@@ -197,19 +177,20 @@ $date = strtotime('now -17 year');
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1); //January is 0!
-            var yyyy = today.getFullYear() - 17;
-            var maxDate = yyyy + '-' + mm + '-' + dd;
-            $('#bdate').attr('max', maxDate);
-            
+            var yyyy = today.getFullYear();
+
             
             var today2 = new Date(yyyy, mm, dd);
-            
+
            
             var age = today.getFullYear() - bdate.getFullYear();
              var m = today.getMonth() - bdate.getMonth();
             if (m < 0 || (m == 0 && today.getDate() < bdate.getDate())) {
                 age--;
             }
+            //window.alert(age);
+
+            
 
                 if (username == "" || password == "" || pass2 == "" || fname == "" || mname == "" || lname == "" || pnum == "" || email == "" || bdate == "") {
                     Swal.fire('Error Signing Up...', 'Please Dont Leave Blanks', 'error');
@@ -217,6 +198,9 @@ $date = strtotime('now -17 year');
                 else if(password != pass2){
                       Swal.fire('Error Signing Up...', 'Password Does Not Match', 'error');
                   }
+                else  if(age <16){
+                Swal.fire('Error Signing Up...', 'Invalid age', 'error');
+                     }
                 else{
                     $.ajax({
                         type:"POST",
@@ -227,7 +211,6 @@ $date = strtotime('now -17 year');
                             lname:lname, pnum:pnum, email:email, bdate:bdate
                         },
                         success:function(data){
-                            //alert(bdate);   
                             if (data == "0") {
                                  Swal.fire('Username is Taken!', 'Please sign in', 'error');   
                             }
@@ -236,8 +219,8 @@ $date = strtotime('now -17 year');
                             }
 
                             else{
-                                Swal.fire({
-                                title: data,
+                                   Swal.fire({
+                                title: "Registered Successfully!",
                                 confirmButtonText: 'Ok',
                                 showCloseButton: true
                             })

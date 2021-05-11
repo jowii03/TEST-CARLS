@@ -1,8 +1,6 @@
 <?php
 include('admin_components.php');
 include ('../php/database.php');
-session_start();
-if (isset($_SESSION['account_username']) && isset($_SESSION['account_type'])  ) {
 $comp = new admin_components;
 
 ?>
@@ -510,8 +508,6 @@ $comp = new admin_components;
                                     
 
                                      <div class="col-xl-12 col-lg-12 col-12 form-group">
-                                        <input type="hidden" name="action" id="action" value="updateQuestionaire" >
-                                        <input type="hidden" name="questionaire_id" id="questionaire_id">
                                      	
                                          <label>Assessment Question</label>
                                          <input type="text" id="aq" name="aq" placeholder="Update Assessment Question" class="form-control" style="border: .5px solid #5A6375;margin-top: -20px;" required="">
@@ -570,13 +566,9 @@ $comp = new admin_components;
                                 
                                 
 
-                                     <div>
-                                         <label>Assessment Image</label>                             
-                                         <input type="file" id="aai" name="aai" placeholder="Add Assessment Image" class="form-control" style="border: .5px solid #5A6375;margin-top: -20px;">
-                                     </div>
-
+                                    
                                      <div class="col-xl-12 col-lg-12 col-12 form-group">
-                                     	<input type="hidden" name="action" id="action" value="insertQuestionaire" >
+                                     	
                                          <label>Assessment Question</label>
                                          <input type="text" id="aaq" name="aaq" placeholder="Add Assessment Question" class="form-control" style="border: .5px solid #5A6375;margin-top: -20px;" required="">
                                     </div>
@@ -630,8 +622,6 @@ $comp = new admin_components;
         </div>
         <!-- Page Area End Here -->
     </div>
-    <!--SWAL-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    <!-- jquery-->
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Plugins js -->
@@ -655,11 +645,4 @@ $comp = new admin_components;
 </html>
 <?php
 $comp->questionaire_ajx();
-?>
-
-<?php
- }
- else{
-	echo "Please log in to view this page";
- }
 ?>

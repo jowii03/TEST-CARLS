@@ -1,11 +1,10 @@
 <?php
 	include ('database.php');
 	session_start();
-	$acc_user = $_SESSION['account_username'];
 
-	if (isset($acc_user)) {
+	if (isset($_SESSION['account_username'])) {
 
-		$sql = "SELECT * FROM account WHERE account_username = '$acc_user'";
+		$sql = "SELECT * FROM account WHERE account_username = '$_SESSION['account_username']'";
 		$result = $conn->query($sql);
 		$row = $result->fetch_assoc();
 		$rowid = $row['account_id'];

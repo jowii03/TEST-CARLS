@@ -1,10 +1,6 @@
 <?php
-session_start();
 //include('admin_components.php');
 include ('../php/database.php');
-echo $_SESSION['account_username'];
-echo $_SESSION['account_type'];
-if (isset($_SESSION['account_username']) && isset($_SESSION['account_type'])  ) {
 //$comp = new admin_components;
 $sql1 = "SELECT COUNT(user_info_id) FROM users_info";
 $result1 = $conn->query($sql1);
@@ -377,7 +373,7 @@ $row3 = mysqli_fetch_array($result3);
     
         $('#wew').dataTable( {
     paging: false,
-    searching: false,
+    searching: true,
     lengthMenu: false,
     info: false,
 
@@ -393,10 +389,3 @@ $row3 = mysqli_fetch_array($result3);
 
 
 </html>
-<?php
- }
- else{
-	echo "Please log in to view this page";
-   
- }
-?>

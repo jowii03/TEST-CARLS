@@ -22,7 +22,7 @@
 
 </style>
 <body>
- <header>        
+<header>        
         <div class="main-menu title" style="">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -38,16 +38,21 @@
                             <li class="navbar-item">
                                 <a href="modules.php" class="nav-link">Modules</a>
                             </li>
+                            <?php
+                            if (isset($_SESSION['account_username'])) {  ?>
+                            <li class="navbar-item">
+                                <a href="assesment.php" class="nav-link">Assesment</a>
+                            </li><?php } else{ ?>
+                            <li class="navbar-item">
+                                <a href="login.php" class="nav-link">Assesment</a>
+                            </li> <?php } ?>
                             <li class="navbar-item">
                                 <a href="license-info.php" class="nav-link">License Info</a>
                             </li>
                             <?php
                             if (isset($_SESSION['account_username'])) { ?>
                             <li class="navbar-item">
-                                <a href="assesment.php" class="nav-link">Assesment</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a href="profile.php" class="nav-link"><?php echo $_SESSION['account_username']; ?> 
+                                <a href="#" class="nav-link"><?php echo $_SESSION['account_username']; ?> 
                                 </a>
                             </li>
                              <li class="navbar-item">
@@ -64,8 +69,7 @@
             </div>
         </div>
     </header>
-   
-   <div class="static about-sec mb-5 mt-2">
+   <section class="static about-sec mb-5 mt-2">
         <div class="container wow fadeIn">
             <h2 class="section-title wow fadeIn" style="text-align: left;">Sign in <span></span></h2>
             <p>Welcome to CAR Learning Simulator.</p>
@@ -81,13 +85,10 @@
                             <button class="btn pull-left" id="btnlogin" name="btnlogin">Sign in</button>
                             <h5>not Registered? <a href="register.php">Register here</a></h5>
                         </div>
-                        <div class="col-lg-8 col-md-12">
-                        <a href="forgot-password-s1.php">  <p style="margin-top: 15px;">forgot password?</p></a>
-                        </div>
                     </div>
             </div>
         </div>
-    </div>
+    </section>
 
 
     <footer >

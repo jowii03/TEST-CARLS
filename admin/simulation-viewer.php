@@ -2,8 +2,7 @@
 //include('admin_components.php');
 include ('../php/database.php');
 //$comp = new admin_components;
-session_start();
-if (isset($_SESSION['account_username']) && isset($_SESSION['account_type'])  ) {
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -384,10 +383,3 @@ if (isset($_SESSION['account_username']) && isset($_SESSION['account_type'])  ) 
         }); 
     }); 
 </script>
-
-<?php
- }
- else{
-	echo "Please log in to view this page";
- }
-?>

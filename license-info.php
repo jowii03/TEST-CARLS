@@ -45,14 +45,19 @@
                             <li class="navbar-item">
                                 <a href="modules.php" class="nav-link">Modules</a>
                             </li>
+                            <?php
+                            if (isset($_SESSION['account_username'])) {  ?>
+                            <li class="navbar-item">
+                                <a href="assesment.php" class="nav-link">Assesment</a>
+                            </li><?php } else{ ?>
+                            <li class="navbar-item">
+                                <a href="login.php" class="nav-link">Assesment</a>
+                            </li> <?php } ?>
                             <li class="navbar-item">
                                 <a href="license-info.php" class="nav-link">License Info</a>
                             </li>
                             <?php
                             if (isset($_SESSION['account_username'])) { ?>
-                            <li class="navbar-item">
-                                <a href="assesment.php" class="nav-link">Assesment</a>
-                            </li>
                             <li class="navbar-item">
                                 <a href="profile.php" class="nav-link"><?php echo $_SESSION['account_username']; ?> 
                                 </a>
@@ -71,7 +76,6 @@
             </div>
         </div>
     </header>
-   
    
 
   

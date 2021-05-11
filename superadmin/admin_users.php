@@ -114,7 +114,7 @@ include ('../php/database.php');
                 <div class="sidebar-menu-content">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
                        <li class="nav-item">
-                            <a href="admin_users.php" class="nav-link "><i class="fa fa-home"></i><span>Home</span></a>
+                            <a href="dashboard.php" class="nav-link "><i class="fa fa-home"></i><span>Home</span></a>
                         </li>
                         
                      
@@ -130,7 +130,7 @@ include ('../php/database.php');
                     <h3>CarLS</h3>
                     <ul>
                         <li>
-                            <a href="admin_users.php">Home</a>
+                            <a href="dasboard.html">Home</a>
                         </li>
                         <li>Admin Users</li>
                        
@@ -173,7 +173,7 @@ include ('../php/database.php');
                                             </div>
                                         </th>
                                        
-                                        <!--th width="30px;">Photo</th-->
+                                        <th width="30px;">Photo</th>
                                         <th>Fullname</th>
                                         <th>Account Status</th>
                                         <th>Action</th>
@@ -183,7 +183,7 @@ include ('../php/database.php');
 
                                     <?php
                                     
-                                        $query = mysqli_query($conn, "SELECT * FROM admin_info") or die(mysqli_error());
+                                        $query = mysqli_query($conn, "SELECT * FROM `admin_info`") or die(mysqli_error());
                                             while($fetch = mysqli_fetch_array($query)){
                                     ?>
                                 
@@ -195,9 +195,9 @@ include ('../php/database.php');
                                                     </div>
                                                 </td>
                                            
-                                                <!--td><img src="img/figure/<?php //echo $fetch['admin_photo']; ?>"></td-->
+                                                <td><img src="img/figure/<?php echo $fetch['admin_photo']; ?>"></td>
                                                 <td><?php echo $fetch['admin_firstname']." " .$fetch['admin_middlename']." " .$fetch['admin_lastname'] ?></td>
-                                                <td><?php echo $fetch['admin_type']?></td>
+                                                <td>Active</td>
                                                 
                                                
                                       
@@ -205,15 +205,7 @@ include ('../php/database.php');
                                                  
                                                    
                                                         <div class="">
-                                                            <?php  
-                                                            if($fetch['admin_type'] == 'active'){
-                                                                echo '<button class="fw-btn-fills btn-danger btnSuspend" id="btnSuspend" name="btnSuspend" aid="'.$fetch['admin_info_id'].'" style="padding: 0px 0px;"><i class="fa fa-ban"></i> Suspend</button>';
-                                                            }
-                                                            else{
-                                                                echo '<button class="fw-btn-fills btn-primary btnActivate" id="btnActivate" name="btnActivate" aid="'.$fetch['admin_info_id'].'" style="padding: 0px 0px;"><i class="fa fa-check"></i> Activate</button>';
-                                                            }
-                                                            ?>
-                                                        	
+                                                        	<a href="#"><button class="fw-btn-fills btn-danger" style="padding: 0px 0px;"><i class="fa fa-ban"></i> Suspend</button></a>
                                                             
                                                         </div>
                                                     
@@ -249,18 +241,10 @@ include ('../php/database.php');
                                 
                                     <div class="col-xl-12 col-lg-12 col-12 form-group">
                                         
-                                         <!--label>Admin Photo</label>
-                                         <input type="file" id="admimg" name="admimg" class="form-control" style="border: .5px solid #5A6375;margin-top: -20px;" required=""-->
-                                         <label>Admin Username</label>
-
-                                         <input type="text" id="uname" name="uname" placeholder="Enter Username" class="form-control" style="border: .5px solid #5A6375;margin-top: -20px;" required="">
+                                         <label>Admin Photo</label>
+                                         <input type="file" id="admimg" name="admimg" class="form-control" style="border: .5px solid #5A6375;margin-top: -20px;" required="">
                                     </div>
 
-                                    <div class="col-xl-12 col-lg-12 col-12 form-group">
-                                        
-                                         <label>Admin Password</label>
-                                         <input type="password" id="pword" name="pword" placeholder="Enter Password" class="form-control" style="border: .5px solid #5A6375;margin-top: -20px;" required="">
-                                    </div>
                                     
                                      <div class="col-xl-12 col-lg-12 col-12 form-group">
                                      	
@@ -309,7 +293,6 @@ include ('../php/database.php');
         </div>
         <!-- Page Area End Here -->
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
    <!-- jquery-->
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Plugins js -->
@@ -339,79 +322,7 @@ include ('../php/database.php');
         
               
     </script>
-    <script type="text/javascript">
-    $(document).ready(function(){   
 
-
-        $(document).on('click', '.btnSuspend', function(){
-
-        var id =  $(this).attr('aid');
-        var act = 'Suspend';
-        
-        Swal.fire({
-            title: "Suspend?",
-            showDenyButton: true, 
-            confirmButtonText: `Yes`,  
-            denyButtonText: `No`,
-            })
-            .then((result) => {  
-                if (result.isConfirmed) {
-                    $.ajax({
-                       url:'suspend_admin.php',
-                       method:'POST',
-                       data: {id:id, act:act},
-                       success:function(data)
-                       {
-                          
-                          alert(data);
-                          window.location = "admin_users.php"; 
-                        }
-                       
-                       });    
-                   
-                    //window.location = "admin_users.php";  
-                } else if (result.isDenied) {    
-                      //alert(id);
-                }
-            });
-        });
-
-        $(document).on('click', '.btnActivate', function(){
-
-        var id =  $(this).attr('aid');
-        var act = 'Activate';
-        
-        Swal.fire({
-            title: "Activate?",
-            showDenyButton: true, 
-            confirmButtonText: `Yes`,  
-            denyButtonText: `No`,
-            })
-            .then((result) => {  
-                if (result.isConfirmed) {
-                    $.ajax({
-                       url:'suspend_admin.php',
-                       method:'POST',
-                       data: {id:id, act:act},
-                       success:function(data)
-                       {
-                          
-                          alert(data);
-                          window.location = "admin_users.php"; 
-                        }
-                       
-                       });    
-                   
-                    //window.location = "admin_users.php";  
-                } else if (result.isDenied) {    
-                      //alert(id);
-                }
-            });
-        });
-
-
-    });
-</script>
 </body>
 
 

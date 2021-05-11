@@ -193,7 +193,7 @@ if(isset($_POST["action"]))
      if($_POST["action"] == "deleteModule")
      {
       $sql = "DELETE FROM modules WHERE module_id = '".$_POST["module_id"]."'";
-      if($conn->query($sql))
+      if(mysqli_query($conn, $sql))
       {
        echo 'Module Deleted from Database';
       }
@@ -231,13 +231,14 @@ if(isset($_POST["action"]))
       $aca = mysqli_real_escape_string($conn, $_POST["aca"]);
       $ac1 = mysqli_real_escape_string($conn, $_POST["ac1"]);
       $ac2 = mysqli_real_escape_string($conn, $_POST["ac2"]);
+      $ac3 = mysqli_real_escape_string($conn, $_POST["ac3"]);
       
-      if($aq == '' || $aca == '' || $ac1 == '' || $ac2 == ''){
+      if($aq == '' || $aca == '' || $ac1 == '' || $ac2 == '' || $ac3 == ''){
         echo 'Please fill-up all fields';
         return false;
       }
       else{  
-        $sql = "UPDATE questionaire SET question_description = '$aq', question_answer_correct = '$aca', question_answer_wrong1 = '$ac1', question_answer_wrong2 = '$ac2' WHERE questionaire_id = '".$_POST["questionaire_id"]."'";
+        $sql = "UPDATE questionaire SET question_description = '$aq', question_answer_correct = '$aca', question_answer_wrong1 = '$ac1', question_answer_wrong2 = '$ac2', question_answer_wrong3 = '$ac3' WHERE questionaire_id = '".$_POST["questionaire_id"]."'";
         if(mysqli_query($conn, $sql))
         {
          echo 'Question Updated into Database';
@@ -268,38 +269,21 @@ if(isset($_POST["action"]))
           return false;
         }*/
     
-        $file_parts = pathinfo($_FILES["image"]["name"]);
-        if ($file_parts["extension"] == "gif" || $file_parts["extension"] == "png" || $file_parts["extension"] == "jpg" || $file_parts["extension"] == "jpeg") 
-        {
-         move_uploaded_file($_FILES["image"]["tmp_name"],"img/figure/".$_FILES["image"]["name"]);
-        $ui=basename($_FILES['image']['name']);
-        }
-
-
       $aq = mysqli_real_escape_string($conn, $_POST["aaq"]);
       $aca = mysqli_real_escape_string($conn, $_POST["aaca"]);
       $ac1 = mysqli_real_escape_string($conn, $_POST["aac1"]);
       $ac2 = mysqli_real_escape_string($conn, $_POST["aac2"]);
+      $ac3 = mysqli_real_escape_string($conn, $_POST["aac3"]);
       
-      if($aq == '' || $aca == '' || $ac1 == '' || $ac2 == ''){
+      if($aq == '' || $aca == '' || $ac1 == '' || $ac2 == '' || $ac3 == ''){
         echo 'Please fill-up all fields';
         return false;
       }
       else{  
-        if($ui == ''){
-          $sql = "INSERT INTO questionaire(question_description, question_answer_correct, question_answer_wrong1, question_answer_wrong2) VALUES('$aq', '$aca', '$ac1', '$ac2') ";
-          if(mysqli_query($conn, $sql))
-          {
-           echo 'Question Added into Database';
-          }
-        }
-        else{
-          
-          $sql = "INSERT INTO questionaire(question_description, question_image, question_answer_correct, question_answer_wrong1, question_answer_wrong2) VALUES('$aq', '$ui', $aca', '$ac1', '$ac2') ";
-          if(mysqli_query($conn, $sql))
-          {
-           echo 'Question Added into Database';
-          }
+        $sql = "INSERT INTO questionaire(question_description, question_answer_correct, question_answer_wrong1, question_answer_wrong2, question_answer_wrong3) VALUES('$aq', '$aca', '$ac1', '$ac2', '$ac3') ";
+        if(mysqli_query($conn, $sql))
+        {
+         echo 'Question Added into Database';
         }
       }
      }

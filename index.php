@@ -126,16 +126,6 @@
               
     </section>
 
-    <section class="section-area-01">
-            <div class="container wow fadeIn" >
-                <p class="sub-title wow fadeIn">Lorem Ipsum</p>
-                
-                <p ></p>
-                <p class="desc wow fadeIn">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-             </div>   
-              
-    </section>
-
      <section class="product-sec">
         <div class="container">
             <h2 class="section-title wow fadeIn">My <span>Simulator</span></h2>

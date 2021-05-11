@@ -191,6 +191,7 @@ class admin_components{
         $('#aca').val($(this).attr('qac'));
         $('#ac1').val($(this).attr('qaw1'));
         $('#ac2').val($(this).attr('qaw2'));
+        $('#ac3').val($(this).attr('qaw3'));
         $('#editprofile').modal('show');
         
        });
@@ -226,7 +227,7 @@ class admin_components{
         //Insert//
         $('#frmQuestionaireAdd').submit(function(event){
         event.preventDefault();
-        var action = 'insertQuestionaire';
+        
           $.ajax({
            url:'admin_actions.php',
            method:'POST',
@@ -255,7 +256,7 @@ class admin_components{
         //Delete//
         $(document).on('click', '.btndelete', function(){
           var id = $(this).attr('id');
-          var action = 'deleteQuestionaire';
+          var action = 'deleteModule';
           
            $.ajax({
            url:'admin_actions.php',
@@ -263,7 +264,7 @@ class admin_components{
            data:{id:id, action:action},
            success:function(data)
            {
-            if(data == 'New E-Book Inserted into Database' || data == 'Question Deleted from Database'){
+            if(data == 'New E-Book Inserted into Database' || data == 'Question Deleted into Database'){
               
               //swal('SUCCESS' ,data ,'success');
               alert(data);

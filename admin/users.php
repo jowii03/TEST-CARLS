@@ -1,8 +1,6 @@
 <?php
-include ('admin_components.php');
+include('admin_components.php');
 include ('../php/database.php');
-session_start();
-if (isset($_SESSION['account_username']) && isset($_SESSION['account_type'])  ) {
 $comp = new admin_components;
 
 ?>
@@ -450,11 +448,4 @@ $comp = new admin_components;
 
 <?php
 $comp->fetch_user_ajx();
-?>
-
-<?php
- }
- else{
-	echo "Please log in to view this page";
- }
 ?>

@@ -1,8 +1,6 @@
 <?php
   include ('php/database.php');
   session_start();
- if (isset($_SESSION['account_username'])) {
-   ?>
 
 ?>
 <!DOCTYPE html>
@@ -79,7 +77,7 @@
 
 </style>
 <body>
-   <header>        
+  <header>        
         <div class="main-menu title" style="">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -95,14 +93,19 @@
                             <li class="navbar-item">
                                 <a href="modules.php" class="nav-link">Modules</a>
                             </li>
+                            <?php
+                            if (isset($_SESSION['account_username'])) {  ?>
+                            <li class="navbar-item">
+                                <a href="assesment.php" class="nav-link">Assesment</a>
+                            </li><?php } else{ ?>
+                            <li class="navbar-item">
+                                <a href="login.php" class="nav-link">Assesment</a>
+                            </li> <?php } ?>
                             <li class="navbar-item">
                                 <a href="license-info.php" class="nav-link">License Info</a>
                             </li>
                             <?php
                             if (isset($_SESSION['account_username'])) { ?>
-                            <li class="navbar-item">
-                                <a href="assesment.php" class="nav-link">Assesment</a>
-                            </li>
                             <li class="navbar-item">
                                 <a href="profile.php" class="nav-link"><?php echo $_SESSION['account_username']; ?> 
                                 </a>
@@ -121,7 +124,6 @@
             </div>
         </div>
     </header>
-   
   
     
 
@@ -135,9 +137,6 @@
     $sql1 = "SELECT * FROM users_info WHERE account_id = '$rowid'";
     $result1 = $conn->query($sql1);
     $row1 = $result1->fetch_assoc();
-
-    // $date = $row1['user_birthdate'];
-    $bdate = new DateTime($row1["user_birthdate"]);
     
   }
 ?>
@@ -180,7 +179,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);border-radius: 3px;">
                               </tr>
                               <tr>
                                 <th>Birthday:</th>
-                                <td><?php echo $bdate->format('Y-m-d'); ?></td>
+                                <td><?php echo $row1['user_birthdate']; ?></td>
                               </tr>
                               <tr>
                                 <th>Phone Number:</th>
@@ -528,10 +527,3 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);border-radius: 3px;">
 </body>
 
 </html>
-
-<?php
- }
- else{
-	echo "Please log in to view this page";
- }
-?>

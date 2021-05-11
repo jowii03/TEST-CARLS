@@ -1,10 +1,5 @@
 <?php
- session_start();
- if (isset($_SESSION['account_username'])) {
-
-include ('question.php');
-
-   
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,234 +38,6 @@ include ('question.php');
         }
 
      }
-     
-.custom-box{
-	max-width: 700px;
-	background-color: #FF6762;
-	margin: 40px auto;
-	padding: 30px;
-	border-radius: 10px;
-	animation: fadeInRight 1s ease;
-}
-
-@keyframes fadeInRight{
-	0%{
-		transform: translateX(40px);
-		opacity: 0;
-	}
-	100%{
-		transform: translateX(0px);
-		opacity: 1;
-	}
-}
-
-.custom-box::before,
-.custom-box::after{
-	content: '';
-	clear: both;
-	display: table;
-}
-
-.custom-box.hide{
-	display: none;
-}
-
-.home-box h3{
-	font-size: 18px;
-	color: #000000;
-	font-weight: 500;
-	margin-bottom: 15px;
-	line-height: 25px;
-}
-
-.home-box p{
-	font-size: 16px;
-	color: #000000;
-	font-weight: 400;
-	margin-bottom: 10px;
-	line-height: 22px;
-}
-
-.home-box p span{
-	font-weight: 500;
-}
-
-.home-box .btn{
-	padding-top: 20px;
-}
-
-.btn{
-	padding: 15px 45px;
-	background-color: #009688;
-	border: none;
-	color: #ffffff;
-	border-radius: 5px;
-	font-size: 18px;
-	font-family: 'Montserrat', sans-serif;
-	cursor: pointer;
-	display: inline-block;
-}
-
-.quiz-box .question-number,
-.quiz-box .question-text,
-.quiz-box .option-container,
-.quiz-box .next-question-btn,
-.quiz-box .answers-indicator{
-	width: 100%;
-	float: left;
-}
-
-.quiz-box .question-number{
-	font-size: 26px;
-	color: #009688;
-	font-weight: 600;
-	border: 1px solid #cccccc;
-	line-height: 25px;
-}
-.quiz-box .question-text{
-	font-size: 24px;
-	color: #000000;
-	line-height: 25px;
-	font-weight: 400;
-	padding: 20px 0;
-	margin:0;
-}
-
-.quiz-box .option-container .option{
-	background-color: #cccccc;
-	padding:13px 15px;
-	font-size: 18px;
-	line-height: 15px;
-	color: #000000;
-	border-radius: 5px;
-	margin-bottom: 10px;
-	cursor: pointer;
-	text-transform: capitalize;
-	opacity: 0;
-	animation: fadeIn 0.3s ease forwards;
-	position: relative;
-	overflow: hidden;
-}
-@keyframes fadeIn{
-	0%{
-		opacity:0;
-	}
-	100%{
-		opacity: 1;
-	}
-}
-
-.quiz-box .option-container .option.already-answered{
-	pointer-events: none;
-}
-
-.quiz-box .option-container .option.correct::before{
-	content: '';
-	position: absolute;;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: green;
-	z-index: -1;
-	animation: slideInLeft .5s ease forwards;
-}
-
-@keyframes slideInLeft{
-	0%{
-		transform: translateX(-100%);
-	}
-	100%{
-		transform: translateX(0%);
-	}
-}
-
-.quiz-box .option-container .option.wrong::before{
-	content: '';
-	position: absolute;;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: red;
-	z-index: -1;
-	animation: slideInLeft .5s ease forwards;
-}
-
-.quiz-box .option-container .option.wrong{
-	color: #ffffff;
-}
-
-.quiz-box .option-container .option.correct{
-	color: #ffffff;
-}
-
-.quiz-box .btn{
-	margin: 15px 0;
-}
-
-.quiz-box .answers-indicator{
-	border-top: 1px solid #cccccc;
-}
-
-.quiz-box .answers-indicator div{
-	height: 40px;
-	width: 40px;
-	display: inline-block;
-	background-color: #cccccc;
-	border-radius: 50%;
-	margin-top: 15px;
-	margin-right: 20px;
-}
-
-.quiz-box .answers-indicator div.correct{
-	background-color: green;
-	background-image: url("images/correct1.png");
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-position: center;
-}`
-.quiz-box .answers-indicator div.wrong{
-	background-color: red;
-	background-image: url("images/wrong.jpg");
-	background-size: 120%;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-.result-box{
-	text-align: center;
-}
-
-.result-box.hide{
-	display: none;
-}
-
-.result-box h1{
-	font-size: 25px;
-	line-height: 25px;
-	color: #009688;
-}
-
-.result-box table{
-	width: 100%;
-	border-collapse: collapse;
-	margin: 30px 0;
-}
-
-.result-box table td{
-	border: 1px solid #cccccc;
-	padding: 8px 15px;
-	font-weight: 500;
-	color: #000000;
-	width: 50%;
-	text-align: left;
-	font-size: 18px;
-}
-
-.reult-box .btn{
-	margin-right: 20px;
-}
       @media only screen and (max-width: 320px){
         .guide{
             font-size: 13px ;
@@ -312,14 +79,19 @@ include ('question.php');
                             <li class="navbar-item">
                                 <a href="modules.php" class="nav-link">Modules</a>
                             </li>
+                            <?php
+                            if (isset($_SESSION['account_username'])) {  ?>
+                            <li class="navbar-item">
+                                <a href="assesment.php" class="nav-link">Assesment</a>
+                            </li><?php } else{ ?>
+                            <li class="navbar-item">
+                                <a href="login.php" class="nav-link">Assesment</a>
+                            </li> <?php } ?>
                             <li class="navbar-item">
                                 <a href="license-info.php" class="nav-link">License Info</a>
                             </li>
                             <?php
                             if (isset($_SESSION['account_username'])) { ?>
-                            <li class="navbar-item">
-                                <a href="assesment.php" class="nav-link">Assesment</a>
-                            </li>
                             <li class="navbar-item">
                                 <a href="profile.php" class="nav-link"><?php echo $_SESSION['account_username']; ?> 
                                 </a>
@@ -340,85 +112,119 @@ include ('question.php');
     </header>
    
 
-    <!-- Quiz/ Assessment Start here-->
-   <div style="margin-bottom: 30px;">
+    
+
+
+   <section style="margin-bottom: 30px;">
         <div class="container">
+            <h2 class="section-title wow fadeIn" style="text-align: left;">Assesment<span></span></h2>
+             <p class="guide" style="margin-bottom: 5px;">Select the correct asnwer.</p>
            
             <div class="form" style="margin-left: 2em;">
                 <form>
                     <div>
-                    <div class="home-box custom-box">
-<h1>Instructions</h1>
-<p>Total number of Questions: <span class="total-questions"></span></p>
-<button type="button" class="btn" onclick="startQuiz()">START QUIZ</button>
-</div>
+                         <p>1. &nbsp If you are involved in an accident, you should inform the nearest police station:</p>
+                         <input type="radio" id="a" name="q1" value="a">
+                        <label for="a">A. immediately</label><br>
+                        <input type="radio" id="b" name="q2" value="b">
+                        <label for="b">B. within 72 hours</label><br>
+                        <input type="radio" id="c" name="q3" value="c">
+                        <label for="c">C. within 48 hours</label>
 
-<div class="quiz-box custom-box hide">
-	<div class="question-number">
-		
-	</div>
+                         <p><br>2. &nbsp The minimum age in the application for Non-Professional Driver’s License is:</p>
+                         <input type="radio" id="a" name="q2" value="a">
+                        <label for="a">A. 18 Years Old</label><br>
+                        <input type="radio" id="b" name="q2" value="b">
+                        <label for="b">B. 16 Years Old</label><br>
+                        <input type="radio" id="c" name="q2" value="c">
+                        <label for="c">C. 17 Years Old</label>
 
-	<div class="question-text">
-		
-	</div>
+                         <p><br>3. &nbsp A Non-Professional driver’s license is suited for:</p>
+                         <input type="radio" id="a" name="q3" value="a">
+                        <label for="a">A. All types of vehicles</label><br>
+                        <input type="radio" id="b" name="q3" value="b">
+                        <label for="b">B. Public utility vehicles</label><br>
+                        <input type="radio" id="c" name="q3" value="c">
+                        <label for="c">C. Private vehicles</label>
 
-	<div class="option-container">
-		
-	</div>
+                         <p><br>4. &nbsp While driving, you should look at your side and rear view mirror:</p>
+                         <input type="radio" id="a" name="q4" value="a">
+                        <label for="a">A. If you want</label><br>
+                        <input type="radio" id="b" name="q4" value="b">
+                        <label for="b">B. Quickly</label><br>
+                        <input type="radio" id="c" name="q4" value="c">
+                        <label for="c">C. Not less than one per minute</label>
 
-	<div class="next-question-btn">
-		<button class="btn" type="button" onclick="next()">Next</button>
-	</div>
+                         <p><br>5. &nbsp You can overtake in the right side of your vehicle if:</p>
+                         <input type="radio" id="a" name="q5" value="a">
+                        <label for="a">A. The road has two or more lanes going in one direction</label><br>
+                        <input type="radio" id="b" name="q5" value="b">
+                        <label for="b">B. The road is two-way</label><br>
+                        <input type="radio" id="c" name="q5" value="c">
+                        <label for="c">C. The sidewalk is wide</label>
 
-	<div class="answers-indicator">
-		<?php
-		for ($i=1; $i <=20 ; $i++) { 
-			echo "<div></div>";
-		}
-		?>
-	</div>
-</div>
+                         <p><br>6. &nbsp In an intersection with a STOP sign, you should:</p>
+                         <input type="radio" id="a" name="q6" value="a">
+                        <label for="a">A. Slow down and proceed if there is no danger</label><br>
+                        <input type="radio" id="b" name="q6" value="b">
+                        <label for="b">B. Stop and proceed if there is no danger</label><br>
+                        <input type="radio" id="c" name="q6" value="c">
+                        <label for="c">C. Give way to vehicles going from left and right, proceed if there is no dangers</label>
 
-<div class="result-box custom-box hide">
-	<h1>Quiz Result</h1>
-	<table>
-		<tr>
-			<td>Total Question</td>
-			<td><span class="total-question" id="total-question"></span></td>
-		</tr>
-		<tr>
-			<td>Correct</td>
-			<td><span class="total-correct" id="total-correct"></span></td>
-		</tr>
-		<tr>
-			<td>Wrong</td>
-			<td><span class="total-wrong" id="total-wrong"></span></td>
-		</tr>
-		<tr>
-			<td>Percentage</td>
-			<td><span class="percentage" id="percentage"></span></td>
-		</tr>
-		<tr>
-			<td>Your Total Score</td>
-			<td><span class="total-score" id="total-socre"></span></td>
-		</tr>
-	</table>
-	
-	<button type="button" id="btnsubmit" class="btn">
-	Back to Menu</button>
-</div>
+                         <p><br>7. &nbsp Obtaining a driver’s license is:</p>
+                         <input type="radio" id="a" name="q7" value="a">
+                        <label for="a">A. A right</label><br>
+                        <input type="radio" id="b" name="q7" value="b">
+                        <label for="b">B. A priviledge</label><br>
+                        <input type="radio" id="c" name="q7" value="c">
+                        <label for="c">C. An honor/label>
 
+                         <p><br>8. &nbsp A person who drives while under influence of alcohol or drugs is punishable by law with:
+
+</p>
+                         <input type="radio" id="a" name="q8" value="a">
+                        <label for="a">A. All answers are correct</label><br>
+                        <input type="radio" id="b" name="q8b" value="b">
+                        <label for="b">B.Fines and imprisonment</label><br>
+                        <input type="radio" id="c" name="q8" value="c">
+                        <label for="c">C. Suspension of license</label>
+
+                         <p><br>9. &nbsp If you are involved in an accident, you should inform the nearest police station:After overtaking, you want to safely go back to the lane where you where you came from, you should:<br>
+                         <input type="radio" id="a" name="q9" value="a">
+                        <label for="a">A. Use the rear view mirror to check the vehicle you have overtaken</label><br>
+                        <input type="radio" id="b" name="q9" value="b">
+                        <label for="b">B.Look at the vehicle you have overtaken by turning your head</label><br>
+                        <input type="radio" id="c" name="q9" value="c">
+                        <label for="c">C. Stop</label>
+
+                         <p><br>10. &nbsp What should you prepare for a long trip?</p>
+                         <input type="radio" id="a" name="q10" value="a">
+                        <label for="a">A. All answers are correct</label><br>
+                        <input type="radio" id="b" name="q10" value="b">
+                        <label for="b">B. Plan your route and make sure the vehicle is running in good condition</label><br>
+                        <input type="radio" id="c" name="q10" value="c">
+                        <label for="c">C.  Prepare the necessary tools that can be used to repair the vehicle</label>
+
+                        <div>
+                            <button class="btn pull-left" style="margin-top: 2em">Submit</button>
+                        </div>
                     </div>
 
                 </form>
             </div>
 
         </div>
-    </div>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="js/app.js"></script>
+    </section>
+   
 
 
+
+
+    
+    
+   
+    
+   
     <footer id="contact">
         <div class="container">
            
@@ -438,7 +244,10 @@ include ('question.php');
 
                             </div>
                         </div>
-
+                           
+                
+             
+         
             
         </div>
         <div class="copy-right">
@@ -490,46 +299,6 @@ include ('question.php');
         });
     </script>
 
-	<script>
-$(document).ready(function(){
-	$('#btnsubmit').click(function(){
-
-		var totalQuestions = $(".total-question").text();
-		var correctAnswers = $(".total-correct").text();
-		var wrongAnswers = $(".total-wrong").text();
-		var percentage = $(".percentage").text();
-    $.ajax({
-	    type: "POST", //request type
-        url: "php/assessment1.php", //the page containing php script
-        data: {
-            correctAnswers: correctAnswers,
-            wrongAnswers: wrongAnswers,
-            totalQuestion: totalQuestions,
-			percentage: percentage,
-
-        },
-        success: function(result) {
-            alert(result);
-            if (result == "success") {
-                Swal.fire({
-                        title: "Assessment Done!",
-                        confirmButtonText: 'Ok',
-                        showCloseButton: true
-                    })
-                    .then(function(result) {
-                        if (result.value) {
-                            window.location = "index.php";
-                        }
-                    });
-            } else {
-                Swal.fire(data, 'Could Not Save to Database', 'error');
-            }
-        }
-	});
-    });
-});
-	</script>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
@@ -542,10 +311,3 @@ $(document).ready(function(){
 </body>
 
 </html>
-
-<?php
- }
- else{
-	include "404.html";
- }
-?>
