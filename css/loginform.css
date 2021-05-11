@@ -1,0 +1,375 @@
+                       /* Style the form */
+                   
+                   .loginform {
+                       background-color: #ffffff;
+                       padding-top: 1em;
+                       padding-bottom: 1em;
+                       padding-left: 3em;
+                       padding-right: 3em;
+                       margin-top: -2em;
+                       margin-left: auto;
+                       margin-right: auto;
+                       margin-bottom: 9rem;
+                       width: 28%;
+                       height: 32rem;
+                       border-radius: 10px;
+                   }
+                   
+                   .imglogo {
+                       width: 8.5em;
+                       padding: 5px 5px;
+                   }
+                   
+                   .h1 {
+                       font-family: 'Open Sans', sans-serif;
+                       font-weight: 500;
+                       font-size: 20px;
+                       color: #264274;
+                       text-transform: uppercase;
+                       letter-spacing: .3px;
+                       margin-bottom: 1.5em;
+                   }
+                   /* Style the input fields */
+                   
+                   .form-control,
+                   input {
+                       width: 100%;
+                       font-size: 15px;
+                       line-height: 12px;
+                       font-family: 'Open Sans', sans-serif;
+                       padding: 3px 5px;
+                       border-left: none;
+                       border-top: none;
+                       border-right: none;
+                       border-bottom: solid 2px;
+                       margin-bottom: 2em;
+                       margin-left: 10px;
+                   }
+                   
+                   input,
+                   input::-webkit-input-placeholder {
+                       font-size: 15px;
+                       line-height: 12px;
+                       color: #C7CBD1;
+                       font-family: 'Open Sans', sans-serif;
+                   }
+                   
+                   .headerimg {
+                       width: 15rem;
+                       height: auto;
+                   }
+                   
+                   .btn {
+                       width: 100%;
+                       height: 30px;
+                       font-size: 12px;
+                       letter-spacing: 1px;
+                       padding: 5px 0px;
+                       margin-left: auto;
+                       margin-right: auto;
+                       display: block;
+                       font-family: 'Open Sans', sans-serif;
+                       font-weight: 600;
+                       background-image: linear-gradient(to right, #005C97 0%, #363795 51%, #005C97 100%);
+                       border: none;
+                       margin-top: 20px;
+                   }
+                   
+                   .btn:hover {
+                       background-position: right center;
+                   }
+                   
+                   .reg {
+                       font-size: 10px;
+                       text-decoration: none;
+                       font-size: 300;
+                       margin-top: .5rem;
+                   }
+                   
+                   .reglink {
+                       text-decoration: none;
+                       color: red;
+                   }
+                   
+                   .reglink:hover {
+                       text-decoration: underline;
+                       color: #264274;
+                       font-weight: 600;
+                   }
+                   
+                   @media only screen and (max-width: 1024px) {
+                       .loginform {
+                           background-color: #ffffff;
+                           padding-top: 1em;
+                           padding-bottom: 1em;
+                           padding-left: 3em;
+                           padding-right: 3em;
+                           margin-top: -2em;
+                           margin-left: auto;
+                           margin-right: auto;
+                           margin-bottom: 9rem;
+                           width: 35% !important;
+                           height: 32rem;
+                           border-radius: 10px;
+                       }
+                   }
+                   
+                   @media only screen and (max-width: 768px) {
+                       .loginform {
+                           background-color: #ffffff;
+                           padding-top: .5em;
+                           padding-bottom: 1.5em;
+                           padding-left: 2em;
+                           padding-right: 2em;
+                           margin-top: -2.5em;
+                           margin-left: auto;
+                           margin-right: auto;
+                           margin-bottom: 20rem;
+                           width: 37% !important;
+                           height: 27rem;
+                           border-radius: 10px;
+                       }
+                       .banner {
+                           height: 70px !important;
+                       }
+                       .imglogo {
+                           width: 6.5em;
+                           padding: 4px 4px;
+                       }
+                       .h1 {
+                           font-weight: 500;
+                           font-size: 14px;
+                           color: #264274;
+                           text-transform: uppercase;
+                           letter-spacing: .3px;
+                           margin-bottom: 1.5em;
+                       }
+                       /* Style the input fields */
+                       .form-control,
+                       input {
+                           width: 100%;
+                           font-size: 11px !important;
+                           line-height: 12px !important;
+                           padding: 2px 4px !important;
+                           border-bottom: solid 1.5px !important;
+                           margin-bottom: 1.5em !important;
+                           margin-left: 5px !important;
+                       }
+                       input,
+                       input::-webkit-input-placeholder {
+                           font-size: 11px;
+                           line-height: 12px;
+                       }
+                       .headerimg {
+                           width: 15rem;
+                           height: auto;
+                       }
+                       .btn {
+                           width: 100%;
+                           height: 30px;
+                           font-size: 12px;
+                           letter-spacing: 1px;
+                           padding: 5px 0px;
+                           font-weight: 600;
+                           margin-top: -10px !important;
+                       }
+                       span {
+                           font-size: 13px;
+                           padding-top: 4px;
+                       }
+                       .logo {
+                           width: 25% !important;
+                       }
+                       .copyright {
+                           font-size: 13px;
+                       }
+                   }
+                   
+                   @media only screen and (max-width: 425px) {
+                       .loginform {
+                           background-color: #ffffff;
+                           padding-top: .5em;
+                           padding-bottom: 1.5em;
+                           padding-left: 2em;
+                           padding-right: 2em;
+                           margin-top: -1.5em;
+                           margin-left: auto;
+                           margin-right: auto;
+                           width: 55% !important;
+                           height: 23rem;
+                           border-radius: 8px;
+                       }
+                       .banner {
+                           height: 65px !important;
+                       }
+                       .imglogo {
+                           width: 5.5em;
+                           padding: 2.5px 2.5px;
+                       }
+                       .h1 {
+                           font-weight: 500;
+                           font-size: 12px;
+                           color: #264274;
+                           text-transform: uppercase;
+                           letter-spacing: .1px;
+                           margin-bottom: 1em;
+                       }
+                       /* Style the input fields */
+                       .form-control,
+                       input {
+                           width: 100%;
+                           font-size: 10px !important;
+                           line-height: 11px !important;
+                           padding: 1.5px 3.5px !important;
+                           border-bottom: solid 1.2px !important;
+                           margin-bottom: 1.5em !important;
+                           margin-left: 5px !important;
+                       }
+                       input,
+                       input::-webkit-input-placeholder {
+                           font-size: 10px;
+                           line-height: 11px;
+                       }
+                       .headerimg {
+                           width: 15rem;
+                           height: auto;
+                       }
+                       .btn {
+                           width: 100%;
+                           height: 20px;
+                           font-size: 9px;
+                           letter-spacing: 1px;
+                           padding: 2px 0px;
+                           font-weight: 500;
+                           margin-top: -10px !important;
+                       }
+                       span {
+                           font-size: 11px;
+                           padding-top: 7.5px;
+                       }
+                       .logo {
+                           width: 20% !important;
+                       }
+                       .copyright {
+                           font-size: 11px;
+                           position: sticky;
+                       }
+                   }
+                   
+                   @media only screen and (max-width: 375px) {
+                       .loginform {
+                           height: 20rem;
+                       }
+                       .banner {
+                           height: 50px !important;
+                       }
+                       .imglogo {
+                           width: 4.5em;
+                           padding: 1.5px 1.5px;
+                       }
+                       .h1 {
+                           font-weight: 500;
+                           font-size: 11px;
+                           color: #264274;
+                           text-transform: uppercase;
+                           letter-spacing: .1px;
+                           margin-bottom: 1em;
+                       }
+                       /* Style the input fields */
+                       .form-control,
+                       input {
+                           width: 100%;
+                           font-size: 9px !important;
+                           line-height: 10px !important;
+                           padding: 1.5px 3.5px !important;
+                           border-bottom: solid 1.2px !important;
+                           margin-bottom: .5em !important;
+                           margin-left: 5px !important;
+                       }
+                       input,
+                       input::-webkit-input-placeholder {
+                           font-size: 10px;
+                           line-height: 11px;
+                       }
+                       .headerimg {
+                           width: 15rem;
+                           height: auto;
+                       }
+                       .btn {
+                           width: 100%;
+                           height: 20px;
+                           font-size: 9px;
+                           letter-spacing: 1px;
+                           padding: 2px 0px;
+                           font-weight: 500;
+                           margin-top: 10px !important;
+                       }
+                       span {
+                           font-size: 10px;
+                           padding-top: 7.5px;
+                       }
+                       .logo {
+                           width: 20% !important;
+                       }
+                       .copyright {
+                           font-size: 11px;
+                           position: sticky;
+                       }
+                   }
+                   
+                   @media only screen and (max-width: 320px) {
+                       .loginform {
+                           background-color: #ffffff;
+                           padding-top: .5em;
+                           padding-bottom: 1em;
+                           padding-left: 1.2em;
+                           padding-right: 1.2em;
+                           margin-top: -1.5em;
+                           margin-left: auto;
+                           margin-right: auto;
+                           width: 55% !important;
+                           height: 17rem;
+                           border-radius: 8px;
+                       }
+                       .h1 {
+                           font-weight: 500;
+                           font-size: 10px;
+                           color: #264274;
+                           margin-bottom: .7em;
+                       }
+                       .imglogo {
+                           width: 4em;
+                           padding: 1.5px 1.5px;
+                       }
+                       .form-control,
+                       input {
+                           width: 100%;
+                           font-size: 8px !important;
+                           line-height: 9px !important;
+                           padding: 2px 3px !important;
+                           border-bottom: solid 1.2px !important;
+                           margin-bottom: .5em !important;
+                           margin-left: 5px !important;
+                       }
+                       input,
+                       input::-webkit-input-placeholder {
+                           font-size: 9px;
+                           line-height: 10px;
+                       }
+                       span {
+                           font-size: 9px;
+                           padding-top: 7px;
+                       }
+                       .btn {
+                           width: 100%;
+                           height: 18px;
+                           font-size: 8px;
+                           letter-spacing: 1px;
+                           padding: 2px 0px;
+                           font-weight: 500;
+                           margin-top: -5px !important;
+                       }
+                       .copyright {
+                           font-size: 9px;
+                           position: sticky;
+                       }
